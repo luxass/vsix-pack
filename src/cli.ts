@@ -1,4 +1,4 @@
-import type { PackageManager } from "vsix-utils";
+import type { PackageManager, PackageManagerWithAuto } from "vsix-utils";
 import process from "node:process";
 import { green, red, underline, yellow } from "farver/fast";
 import yargs, { type Argv } from "yargs";
@@ -22,8 +22,8 @@ cli.command(
     .option("package-manager", {
       type: "string",
       description: "Package Manager",
-      default: "auto",
       alias: "pm",
+      choices: ["auto", "npm", "yarn", "pnpm"],
     })
     .option("pre-release", {
       type: "boolean",
@@ -76,12 +76,13 @@ cli.command(
       skipScripts,
       force,
     } = args;
+
     const result = await pack({
       write: !dryRun,
       forceWrite: force,
       cwd,
       ignoreFile,
-      packageManager: packageManager as PackageManager,
+      packageManager: packageManager as PackageManagerWithAuto,
       packagePath,
       preRelease,
       readme,

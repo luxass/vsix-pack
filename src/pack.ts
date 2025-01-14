@@ -12,6 +12,7 @@ export async function pack(options: Options): Promise<CreateVsixResult> {
     packageManager,
     packagePath,
     skipScripts,
+    scanDependencies,
   } = options;
 
   const vsix = await createVsix({
@@ -24,6 +25,7 @@ export async function pack(options: Options): Promise<CreateVsixResult> {
     ignoreFile,
     skipScripts,
     packagePath,
+    scanDependencies,
   });
 
   return vsix;
