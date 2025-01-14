@@ -1,4 +1,4 @@
-import type { PackageManager, PackageManagerWithAuto } from "vsix-utils";
+import type { PackageManagerWithAuto } from "vsix-utils";
 import process from "node:process";
 import { green, red, underline, yellow } from "farver/fast";
 import yargs, { type Argv } from "yargs";
