@@ -1,4 +1,5 @@
 import { defineConfig } from "rolldown";
+import UnpluginIsolatedDecl from "unplugin-isolated-decl/rolldown";
 
 export default defineConfig([
   {
@@ -18,6 +19,7 @@ export default defineConfig([
         ".js": [".ts", ".js"],
       },
     },
+    plugins: [UnpluginIsolatedDecl()],
   },
   {
     input: {
@@ -36,6 +38,9 @@ export default defineConfig([
         ".js": [".ts", ".js"],
       },
     },
+    plugins: [
+      UnpluginIsolatedDecl(),
+    ],
   },
   {
     input: "./src/cli.ts",
