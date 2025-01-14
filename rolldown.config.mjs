@@ -1,3 +1,6 @@
+// @ts-check
+
+import path from "node:path";
 import { defineConfig } from "rolldown";
 import UnpluginIsolatedDecl from "unplugin-isolated-decl/rolldown";
 import pkg from "./package.json" with { type: "json" };
@@ -34,6 +37,7 @@ export default defineConfig([
   {
     input: {
       index: "src/index.ts",
+      cli: "src/cli.ts",
     },
     output: {
       dir: "dist",
@@ -71,21 +75,5 @@ export default defineConfig([
       UnpluginIsolatedDecl(),
       ExternalPlugin,
     ],
-  },
-  {
-    input: "./src/cli.ts",
-    output: {
-      dir: "dist",
-      format: "esm",
-      sourcemap: false,
-      entryFileNames: "cli.mjs",
-      chunkFileNames: "chunk-[hash].mjs",
-    },
-    platform: "node",
-    resolve: {
-      extensionAlias: {
-        ".js": [".ts", ".js"],
-      },
-    },
   },
 ]);
