@@ -1,5 +1,34 @@
 import { defineConfig } from "rolldown";
 import UnpluginIsolatedDecl from "unplugin-isolated-decl/rolldown";
+import pkg from "./package.json" with { type: "json" };
+
+const EXTERNAL_DEPENDENCIES = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...(("peerDependencies" in pkg && typeof pkg.peerDependencies === "object" && pkg.peerDependencies != null) ? Object.keys(pkg.peerDependencies) : []),
+];
+
+/**
+ * @type {import('rolldown').Plugin}
+ */
+const ExternalPlugin = {
+  name: "external-deps",
+  resolveId(id, _, { isEntry }) {
+    if (isEntry) {
+      return;
+    }
+
+    let shouldExternal = !path.isAbsolute(id) && id[0] !== ".";
+
+    shouldExternal ||= EXTERNAL_DEPENDENCIES.some((dep) => id === dep || id.startsWith(`${dep}/`));
+
+    if (shouldExternal) {
+      return {
+        id,
+        external: true,
+      };
+    }
+  },
+};
 
 export default defineConfig([
   {
@@ -19,7 +48,7 @@ export default defineConfig([
         ".js": [".ts", ".js"],
       },
     },
-    plugins: [UnpluginIsolatedDecl()],
+    plugins: [UnpluginIsolatedDecl(), ExternalPlugin],
   },
   {
     input: {
@@ -40,6 +69,7 @@ export default defineConfig([
     },
     plugins: [
       UnpluginIsolatedDecl(),
+      ExternalPlugin,
     ],
   },
   {
