@@ -10,9 +10,10 @@ const cli = yargs(process.argv.slice(2))
   .usage("$0 [args]")
   .version(version)
   .strict()
-  .showHelpOnFail(false)
+  .showHelpOnFail(true)
   .alias("h", "help")
-  .alias("v", "version");
+  .alias("v", "version")
+  .demandCommand(1, "");
 
 cli.command(
   "pack",
