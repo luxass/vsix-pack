@@ -108,6 +108,15 @@ cli.command(
   },
 );
 
+cli.command(
+  "publish",
+  "Publish Visual Studio Code Extensions",
+  (args) => commonOptions(args).strict().help(),
+  async (args) => {
+    console.log("publishing", args);
+  },
+);
+
 cli.help().parse();
 
 function commonOptions(args: Argv<object>): Argv<object & { cwd: string }> {
