@@ -49,8 +49,8 @@ importers:
         specifier: ^2.1.8
         version: 2.1.8(@types/node@20.16.11)
       vitest-testdirs:
-        specifier: ^1.4.0
-        version: 1.6.0(vitest@2.1.8(@types/node@20.16.11))
+        specifier: ^2.0.0
+        version: 2.1.1(vitest@2.1.8(@types/node@20.16.11))
 
 packages:
 
@@ -1824,6 +1824,10 @@ packages:
   termenv@0.4.1:
     resolution: {integrity: sha512-jJdLc4K0dUxEQmOOttISgocfq1CEbPdGyGxKCcCuX5qqpC6B8Z5a/pu77br7fsbdfA6VibNLKdcb2P2hhoCTcQ==}
 
+  testdirs@0.1.4:
+    resolution: {integrity: sha512-6ITYziGX1OmfR2HGJgjFwxnKIWdytUuVZV3JwkCal7m2v9kw+r+CZcwjIzjn5Q8Bxdm60a3L3tLDhUOuEwklsQ==}
+    engines: {node: '>=20'}
+
   tinybench@2.9.0:
     resolution: {integrity: sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==}
 
@@ -1972,11 +1976,11 @@ packages:
       terser:
         optional: true
 
-  vitest-testdirs@1.6.0:
-    resolution: {integrity: sha512-3TZzPFy1tUA3tJDwIoydmzwz6yhrVXuItXI7U+TbbV7Ox+zYQfRkuoe0nZKruVVllo8FTfHOaql6CRhXBoK4XQ==}
+  vitest-testdirs@2.1.1:
+    resolution: {integrity: sha512-1bVjra7vT07fFasVYmpWYBYvvGBogrvjBOBk3UVhCD4ESwhU+CcLBEnpo21jBDgM1KWvWQsg3HZgerMnnBDcsQ==}
     engines: {node: '>=20'}
     peerDependencies:
-      vitest: '>=1.5.3 <3.0.0'
+      vitest: '>=2.0.5 <4.0.0'
 
   vitest@2.1.8:
     resolution: {integrity: sha512-1vBKTZskHw/aosXqQUlVWWlGUxSJR8YtiyZDJAFeW2kPAeX6S3Sool0mjspO+kXLuxVWlEDDowBAeqeAQefqLQ==}
@@ -4008,6 +4012,8 @@ snapshots:
 
   termenv@0.4.1: {}
 
+  testdirs@0.1.4: {}
+
   tinybench@2.9.0: {}
 
   tinyexec@0.3.2: {}
@@ -4134,8 +4140,9 @@ snapshots:
       '@types/node': 20.16.11
       fsevents: 2.3.3
 
-  vitest-testdirs@1.6.0(vitest@2.1.8(@types/node@20.16.11)):
+  vitest-testdirs@2.1.1(vitest@2.1.8(@types/node@20.16.11)):
     dependencies:
+      testdirs: 0.1.4
       vitest: 2.1.8(@types/node@20.16.11)
 
   vitest@2.1.8(@types/node@20.16.11):
