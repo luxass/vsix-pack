@@ -46,7 +46,7 @@ importers:
         specifier: ^0.10.5
         version: 0.10.5(rollup@4.41.1)(typescript@5.7.3)
       vitest:
-        specifier: ^2.1.8
+        specifier: 2.1.9
         version: 2.1.9(@types/node@20.16.11)
       vitest-testdirs:
         specifier: ^1.4.0
