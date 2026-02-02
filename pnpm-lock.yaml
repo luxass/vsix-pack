@@ -49,8 +49,8 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@20.16.11)
       vitest-testdirs:
-        specifier: ^1.4.0
-        version: 1.6.0(vitest@2.1.9(@types/node@20.16.11))
+        specifier: ^4.0.0
+        version: 4.4.2(vitest@2.1.9(@types/node@20.16.11))
 
 packages:
 
@@ -1848,6 +1848,10 @@ packages:
   termenv@0.4.1:
     resolution: {integrity: sha512-jJdLc4K0dUxEQmOOttISgocfq1CEbPdGyGxKCcCuX5qqpC6B8Z5a/pu77br7fsbdfA6VibNLKdcb2P2hhoCTcQ==}
 
+  testdirs@4.0.1:
+    resolution: {integrity: sha512-kkGJByg7ybL2N2VXuFZzrp1EirXokXnqFAu5+qm0kaCABk+QaQNmJnrQbzs6BYHhKeARDvDtmnZLRSQYKJyzRA==}
+    engines: {node: '>=22'}
+
   tinybench@2.9.0:
     resolution: {integrity: sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==}
 
@@ -1996,11 +2000,11 @@ packages:
       terser:
         optional: true
 
-  vitest-testdirs@1.6.0:
-    resolution: {integrity: sha512-3TZzPFy1tUA3tJDwIoydmzwz6yhrVXuItXI7U+TbbV7Ox+zYQfRkuoe0nZKruVVllo8FTfHOaql6CRhXBoK4XQ==}
-    engines: {node: '>=20'}
+  vitest-testdirs@4.4.2:
+    resolution: {integrity: sha512-afY/m5b2mQEjbQpcMkRxxtOeogfeHsC7gl6BmI16iJkwghi+Cj3lAnmxxRO8f8LlbwFp4NjPKGGP4wMn9hhwnw==}
+    engines: {node: '>=22'}
     peerDependencies:
-      vitest: '>=1.5.3 <3.0.0'
+      vitest: '>=3.0.0 <4.0.0 || >=4.0.0 <5.0.0'
 
   vitest@2.1.9:
     resolution: {integrity: sha512-MSmPM9REYqDGBI8439mA4mWhV5sKmDlBKWIYbA3lRb2PTHACE0mgKwA8yQ2xq9vxDTuk4iPrECBAEW2aoFXY0Q==}
@@ -2099,6 +2103,9 @@ packages:
 
   zod@3.24.1:
     resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
+
+  zod@4.3.6:
+    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -4036,6 +4043,10 @@ snapshots:
 
   termenv@0.4.1: {}
 
+  testdirs@4.0.1:
+    dependencies:
+      zod: 4.3.6
+
   tinybench@2.9.0: {}
 
   tinyexec@0.3.2: {}
@@ -4162,9 +4173,11 @@ snapshots:
       '@types/node': 20.16.11
       fsevents: 2.3.3
 
-  vitest-testdirs@1.6.0(vitest@2.1.9(@types/node@20.16.11)):
+  vitest-testdirs@4.4.2(vitest@2.1.9(@types/node@20.16.11)):
     dependencies:
+      testdirs: 4.0.1
       vitest: 2.1.9(@types/node@20.16.11)
+      zod: 4.3.6
 
   vitest@2.1.9(@types/node@20.16.11):
     dependencies:
@@ -4284,5 +4297,7 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zod@3.24.1: {}
+
+  zod@4.3.6: {}
 
   zwitch@2.0.4: {}
