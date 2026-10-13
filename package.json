@@ -65,6 +65,6 @@
     "typescript": "^5.7.2",
     "unplugin-isolated-decl": "^0.10.5",
     "vitest": "^2.1.8",
-    "vitest-testdirs": "^1.4.0"
+    "vitest-testdirs": "^4.0.0"
   }
 }
